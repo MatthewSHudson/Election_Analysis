@@ -104,7 +104,7 @@ with open(file_to_save, "w") as txt_file:
         percentage_votes = round(v / total_votes*100, ndigits=2)
         
         # 6d: Print the county results to the terminal.
-        out_str = f"{k}: {percentage_votes}% ({v:,})"
+        out_str = f"{k}: {percentage_votes:.1f}% ({v:,})"
         print(f"{out_str}")
         # 6e: Save the county votes to a text file.
         txt_file.write(f"{out_str}\n")
