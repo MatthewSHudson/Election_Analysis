@@ -35,6 +35,30 @@ largest_county_votes = 0
 #track current county name
 county_name = ""
 
+#This is not part of the solution but rather an addition for part 3 of the write up,
+#The below code would help the solution generalize to larger elections.
+
+#function to get the top n entries from a dictionary and return a formatted string
+def topEntries(n:int,d:dict):
+    #declare return string and list representation of the dictionary
+    ret =""
+    d_list = d.items()
+    #calculate sum of values
+    total = 0
+    for k,v in d_list:
+        total += v
+    #source: https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value
+    d_list = sorted(d_list, key=lambda x: x[1],reverse=True)
+    #loop through list, perform calculations, append string to print to ret
+    i = 0
+    while i<n and i<len(d_list):
+        percent = d_list[i][1] / total *100
+        ret += f"{d_list[i][0]}: {percent:.1f}% ({d_list[i][1]})"
+        i += 1
+    return ret
+    
+
+
 # Read the csv and convert it into a list of dictionaries
 with open(file_to_load) as election_data:
     reader = csv.reader(election_data)
