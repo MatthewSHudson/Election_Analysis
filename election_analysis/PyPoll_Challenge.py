@@ -53,7 +53,7 @@ def topEntries(n:int,d:dict):
     i = 0
     while i<n and i<len(d_list):
         percent = d_list[i][1] / total *100
-        ret += f"{d_list[i][0]}: {percent:.1f}% ({d_list[i][1]})"
+        ret += f"{d_list[i][0]}: {percent:.1f}% ({d_list[i][1]})\n"
         i += 1
     return ret
     
